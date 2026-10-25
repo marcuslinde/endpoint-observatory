@@ -36,7 +36,7 @@ uv sync
 
 | # | Phase | Goal | Status |
 | --- | --- | --- | --- |
-| 1 | Simulator | A fake endpoint that answers fast, slow or fails, reproducibly | 🚧 |
+| 1 | Simulator | A fake endpoint that answers fast, slow or fails, reproducibly | ✅ |
 | 2 | One observation | Time a single call and store what happened | ⬜ |
 | 3 | Sequential baseline | Monitor N endpoints one after another and measure it | ⬜ |
 | 4 | Bounded concurrency | Same work, overlapping waits, with a cap and a timeout | ⬜ |
