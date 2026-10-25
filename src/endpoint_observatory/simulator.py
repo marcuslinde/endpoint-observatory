@@ -23,13 +23,13 @@ WEIGHTS = [90, 8, 2]
 router = APIRouter()
 
 
+def pick_outcome(rng: random.Random) -> str:
+    return rng.choices(OUTCOMES, weights=WEIGHTS)[0]
+
+
 @router.get("/health")
 async def health():
     return {"status": "ok"}
-
-
-def pick_outcome(rng: random.Random) -> str:
-    return rng.choices(OUTCOMES, weights=WEIGHTS)[0]
 
 
 @router.get("/endpoints/{endpoint_id}")
