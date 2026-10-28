@@ -44,10 +44,10 @@ contender invites invented alternatives.
 
 ## Stack
 
-**Decision:** Python on the existing `uv` setup, FastAPI for HTTP, HTTPX for the monitor client, pytest for tests, SQLite once persistence is needed.
+**Decision:** Python on the existing `uv` setup, FastAPI for HTTP, HTTPX2 for the monitor client, pytest for tests, SQLite once persistence is needed.
 **Status:** Proposed
-**Reason:** Already scaffolded, and each is the smallest thing that does the job. Nothing here is permanent.
-**Revisit when:** monitoring shows a component is the bottleneck — SQLite write contention or slow report queries, HTTPX client behaviour, FastAPI throughput. Replacing a component because measurement implicated it is a success, not a rewrite.
+**Reason:** Already scaffolded, and each is the smallest thing that does the job. Nothing here is permanent. HTTPX2 replaced HTTPX because starlette deprecated `httpx` in its test client; the swap was a rename, not a redesign, and it removed the deprecation warning from the test suite.
+**Revisit when:** monitoring shows a component is the bottleneck — SQLite write contention or slow report queries, HTTPX2 client behaviour, FastAPI throughput. Replacing a component because measurement implicated it is a success, not a rewrite.
 
 ## Manual runs before scheduling
 

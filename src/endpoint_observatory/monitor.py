@@ -1,14 +1,13 @@
 import asyncio
-from dataclasses import asdict
 import time
 
-import httpx
+import httpx2
 
 from endpoint_observatory.observation import Observation
 
 
 async def one_call(url: str, endpoint_id: str) -> Observation:
-    async with httpx.AsyncClient(timeout=5.0) as client:
+    async with httpx2.AsyncClient(timeout=5.0) as client:
         #we start counter after opening a client
         start = time.perf_counter()
 
@@ -16,7 +15,7 @@ async def one_call(url: str, endpoint_id: str) -> Observation:
             res = await client.get(url)
             status = res.status_code
             error = None
-        except httpx.HTTPError as exc:
+        except httpx2.HTTPError as exc:
             status = None
             error = str(exc)
         finally:
